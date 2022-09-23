@@ -8,20 +8,45 @@
     <title>Cards </title>
 </head>
 <body>
-    <h1>Cards Wather and timer</h1>
+    <header>
+        <nav>
+            <h1>  Times THE Worlds Now</h1>
+            <div class="wathers">
+
+                <select class="buttonSelect" name="wather" id="wahters" onchange="fetchText()">
+                    <option  value="Aden" >Aden</option>
+                    <option  value="Baghdad">Baghdad</option>
+                    <option  value="Qatar" >Qatar</option>
+                <option  value="Riyadh">Riyadh</option>
+                <option  value="Amman">Amman</option>
+            </select>
+            <ul class="gWather">
+                <li class="CIty">CIty</li>
+                <li class="timeDay">time Day</li>
+                <li class="timeHour"> time Hour</li>
+            </ul>
+        </div>
+        </nav>
+    </header>
     <section class="main">
-            <div class="card">
-                <div class="imageCard">
-                    <img src="" alt="">
+    <div class="groubCard">
+
+        <div class="card">
+            <div class="imageCard">
+                    <img src="./Images/Front-end.png" class="imgCard" alt="">
                 </div>
+                <p class="title">Lorem ipsum dolor sit amet.</p>
                 <div class="desCard">
-                    <p></p>
-                    <p class="city"></p>
-                    <p class="timeHour"></p>
-                    <p class="timeDay"></p>
-                    <p class="wather"></p>
+                    <h2 class="city">city</h2>
+                    <p id="timeHour"></p>
+                    <p class="timeDay">sun</p>
+                    <p class="wather">C`27</p>
                 </div>
             </div>
+  
+           
+    </div>
+        
     </section>
     <script src="./JS/script.js"></script>
 </body>
