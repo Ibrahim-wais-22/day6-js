@@ -1,49 +1,39 @@
-GetTime();
-
-function GetTime(){
-  var Time = new Date()
-  var hour = Time.getHours()
-  var minute = Time.getMinutes()
-  var second = Time.getSeconds()
-
-  if(minute < 10){
-    minute = "0" + minute
-  }
-
-  if(second < 10){
-    second = "0" + second
-  }
-
-  var GetCurrentTime = hour + ":" + minute + ":" + second + " ";
-
-  if(hour > 11){
-    GetCurrentTime += "p.m."
-  }else{
-    GetCurrentTime += "a.m."
-  }
-
-  document.getElementById("timeHour").innerHTML = GetCurrentTime;
-  setTimeout(GetTime,1000)
-}
-async function fetchText() {
+async function fetchTime() {
     
     let e = document.getElementById("wahters");
-    lvalue = e.value;
+    value = e.value;
     let text = e.options[e.selectedIndex].text;
     let response = await fetch(`http://worldtimeapi.org/api/timezone/Asia/${text}`);
     let data = await response.json();
     time1 = data.datetime;
-    // console.log(data.datetime);
-    document.querySelector(".CIty").innerHTML=data.timezone
-    document.querySelector(".timeDay").innerHTML=time1.slice(-32,-22)
-    document.querySelector(".timeHour").innerHTML=time1.slice(-21,-13)
-    
-}
-// -------------------------------
-function cards(){
-    for (let index = 1; index < 10; index++) {
+    console.log(data.datetime);
+    document.querySelector(".CIty").innerHTML=data.timezone;
+    document.querySelector(".timeDay").innerHTML=time1.slice(-32,-22);
+    document.querySelector(".timeHour").innerHTML=time1.slice(-21,-13);
 
-        console.log(index)
-    }
 }
-cards()
+
+// -------------------------------
+
+    
+
+
+const fetchText2 = async() => {
+      let response = await fetch("https://api.unsplash.com/photos/?client_id=IFjGofIxgQTG6umPBj6imKs_2HN_KTgfgZr8C3Kxejc");
+      let data = await response.json();
+      console.log(data);
+      data.map((item) => {
+          console.log(item.urls.raw);
+          let element = document.createElement("img");
+          element.src = item.urls.thumb;
+          
+          
+          
+            let div = document.querySelector(".groubCard");
+            div.appendChild(element);
+      });
+  
+     
+  };
+  
+  fetchText2();
